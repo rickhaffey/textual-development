@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0FF45159-79D7-468C-A521-3D0E1B9DFF1C}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{027F677D-C56A-4637-B755-137F4633A2B9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>textual_development.Elasticsearch.Net</RootNamespace>
-    <AssemblyName>textual-development.Elasticsearch.Net</AssemblyName>
+    <RootNamespace>TextualDevelopment.App</RootNamespace>
+    <AssemblyName>TextualDevelopment.App</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,6 +35,13 @@
     <Reference Include="Elasticsearch.Net">
       <HintPath>..\packages\Elasticsearch.Net.1.5.0\lib\net45\Elasticsearch.Net.dll</HintPath>
     </Reference>
+    <Reference Include="Nest">
+      <HintPath>..\packages\NEST.1.5.0\lib\net45\Nest.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,10 +51,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\textual-development.Elasticsearch.Net\TextualDevelopment.Elasticsearch.Net.csproj">
+      <Project>{0ff45159-79d7-468c-a521-3d0e1b9dff1c}</Project>
+      <Name>TextualDevelopment.Elasticsearch.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\textual-development.NEST\TextualDevelopment.NEST.csproj">
+      <Project>{4a03d5a8-57f9-4a04-bb25-25320f415bb0}</Project>
+      <Name>TextualDevelopment.NEST</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

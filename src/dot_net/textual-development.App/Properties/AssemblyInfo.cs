@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("textual-development.Console")]
+[assembly: AssemblyTitle("textual-development.App")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Fanatics")]
-[assembly: AssemblyProduct("textual-development.Console")]
+[assembly: AssemblyProduct("textual-development.App")]
 [assembly: AssemblyCopyright("Copyright © Fanatics 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("73021e41-1001-428e-a2d9-3380d64a8159")]
+[assembly: Guid("66c78401-1f9d-48ae-8483-2dd4eecbd458")]
 
 // Version information for an assembly consists of the following four values:
 //
