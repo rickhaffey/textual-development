@@ -6,5 +6,7 @@
 * [ ] Run all code to verify that it works
 * [ ] Correct Categories
 * [ ] Correct Tags
+* [ ] Add Highlights
+* [ ] Add Links
 
 
