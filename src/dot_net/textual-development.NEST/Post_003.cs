@@ -26,7 +26,7 @@ namespace TextualDevelopment.NEST
             return new ElasticClient(config);
         }
 
-        public static string GetInfo(ElasticClient client)
+        public static string GetInfoX(ElasticClient client)
         {
             // http://localhost:9200?pretty
             var response = client.RootNodeInfo();
@@ -41,5 +41,24 @@ namespace TextualDevelopment.NEST
 
             return sb.ToString();
         }
+
+        public static void GetInfo(ElasticClient client)
+        {
+            var response = client.RootNodeInfo();
+            Console.WriteLine("Status: " + response.Status);
+            Console.WriteLine("Name: " + response.Name);
+            Console.WriteLine("Version Number: " + response.Version.Number);
+            Console.WriteLine("Version Is Snapshot Build: " + response.Version.IsSnapShotBuild);
+            Console.WriteLine("Lucene Version: " + response.Version.LuceneVersion);
+            Console.WriteLine("Tagline: " + response.Tagline);
+
+
+            var s = client.Raw.Info<string>();
+        }
+
+
+
+
+
     }
 }
