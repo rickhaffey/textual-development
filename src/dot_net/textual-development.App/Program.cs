@@ -33,13 +33,13 @@ namespace TextualDevelopment.App
         {
             // Elasticsearch.Net
             Console.WriteLine(" -- via Elasticsearch.Net -- ");
-            var client = TextualDevelopment.Elasticsearch.Net.Post_003.SpecifyHostConnect(url);
-            Console.WriteLine(TextualDevelopment.Elasticsearch.Net.Post_003.GetInfo(client));
+            var client = TextualDevelopment.Elasticsearch.Net.Post_003.SpecifyHostConnect();
+            TextualDevelopment.Elasticsearch.Net.Post_003.ShowInfo(client);
 
             // NEST
             Console.WriteLine(" -- via NEST -- ");
-            var nestClient = TextualDevelopment.NEST.Post_003.SpecifyHostConnect(url);
-            Console.WriteLine(TextualDevelopment.NEST.Post_003.GetInfo(nestClient));
+            var nestClient = TextualDevelopment.NEST.Post_003.SpecifyHostConnect();
+            TextualDevelopment.NEST.Post_003.ShowInfo(nestClient);
         }
     }
 }
