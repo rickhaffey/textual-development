@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextualDevelopment.Elastics
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextualDevelopment.App", "textual-development.App\TextualDevelopment.App.csproj", "{027F677D-C56A-4637-B755-137F4633A2B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextualDevelopment.Domain", "textual-development.Domain\TextualDevelopment.Domain.csproj", "{4E219D81-9AA3-435D-B32B-45C51671BF34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{027F677D-C56A-4637-B755-137F4633A2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{027F677D-C56A-4637-B755-137F4633A2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{027F677D-C56A-4637-B755-137F4633A2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E219D81-9AA3-435D-B32B-45C51671BF34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E219D81-9AA3-435D-B32B-45C51671BF34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E219D81-9AA3-435D-B32B-45C51671BF34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E219D81-9AA3-435D-B32B-45C51671BF34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

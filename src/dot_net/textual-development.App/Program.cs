@@ -11,8 +11,9 @@ namespace TextualDevelopment.App
         static void Main(string[] args)
         {
             string url = GetUrl();
-            
-            Post_003(url);
+
+            Post_004(url);
+            //Post_003(url);
             
             System.Console.ReadLine();
         }
@@ -27,6 +28,17 @@ namespace TextualDevelopment.App
             }
 
             return string.Format("http://{0}:9200", host);
+        }
+
+        static void Post_004(string url)
+        {
+            // Elasticsearch.Net
+            Console.WriteLine(" -- via Elasticsearch.Net -- ");            
+            TextualDevelopment.Elasticsearch.Net.Post_004.IndexAlbum(url);
+            
+            // NEST
+            Console.WriteLine(" -- via NEST -- ");
+            TextualDevelopment.NEST.Post_004.IndexAlbum(url);            
         }
 
         static void Post_003(string url)
