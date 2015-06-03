@@ -60,7 +60,7 @@ namespace TextualDevelopment.NEST
            
             IIndexRequest<Album> req = new IndexRequest<Album>(album);
             req.Index = "rolling-stone-500";
-            //req.Id = 3;
+            //req.Id = "59";
             
             IIndexResponse response1 = client.Index(req);
         }

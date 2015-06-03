@@ -11,17 +11,7 @@ namespace TextualDevelopment.Domain.RollingStone
     // another field to be used as the source of the id
     [ElasticType(IdProperty="Rank")]
     public class Album
-    {
-        // this base class section is only needed for elasticsearch.net when using strongly-typed response to index() call
-        // otherwise, there's no easy mechanism for pulling the index back out of newly indexed, dynamically id'd documents
-        // --------------------------------------
-        public string _index { get; set; }
-        public string _type { get; set; }
-        public string _id { get; set; }
-        public string _version { get; set; }
-        //public bool created { get; set; }
-        // --------------------------------------
-
+    {        
         public string Title { get; set; }
         public Uri Url { get; set; }
         public string Artist { get; set; }

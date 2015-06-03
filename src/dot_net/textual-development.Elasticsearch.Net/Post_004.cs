@@ -29,10 +29,10 @@ namespace TextualDevelopment.Elasticsearch.Net
             // strongly-typed
             Console.WriteLine(" --- strongly-typed --- ");
             ElasticsearchResponse<Album> response2 = client.Index<Album>("rolling-stone-500", "album", "2", Album.ChronicleV1);
-            Console.WriteLine("_index: " + response2.Response._index);
-            Console.WriteLine("_type: " + response2.Response._type);
-            Console.WriteLine("_id: " + response2.Response._id);
-            Console.WriteLine("_version: " + response2.Response._version);            
+            //Console.WriteLine("_index: " + response2.Response._index);
+            //Console.WriteLine("_type: " + response2.Response._type);
+            //Console.WriteLine("_id: " + response2.Response._id);
+            //Console.WriteLine("_version: " + response2.Response._version);            
             // Console.WriteLine("created: " + response2.Response.created);  // removed this because it's getting indexed as well -- only want it to pick up the response
 
             // show raw response (requires config on connection)
