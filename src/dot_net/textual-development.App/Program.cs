@@ -11,6 +11,8 @@ namespace TextualDevelopment.App
         static void Main(string[] args)
         {
             string url = GetUrl();
+            TextualDevelopment.NEST.Sandbox.Run(url);
+
 
             Post_004(url);
             //Post_003(url);

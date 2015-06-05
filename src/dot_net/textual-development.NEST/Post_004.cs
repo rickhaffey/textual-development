@@ -69,9 +69,9 @@ namespace TextualDevelopment.NEST
         {
             album.Rank = 4;     // establish our ID
 
-            Func<IndexDescriptor<Album>, IndexDescriptor<Album>> fun = (a) =>
+            Func<IndexDescriptor<Album>, IndexDescriptor<Album>> fun = (i) =>
             {
-                return a
+                return i
                     .Index("rolling-stone-500")
                     //.Id(4)
                     ;
@@ -84,7 +84,7 @@ namespace TextualDevelopment.NEST
         {
             album.Rank = 5;     // establish our ID
 
-            IIndexResponse response = client.Index(album, a => a
+            IIndexResponse response = client.Index(album, i => i
                 .Index("rolling-stone-500")
                 //.Id(5)
             );            
