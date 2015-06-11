@@ -46,10 +46,7 @@ namespace TextualDevelopment.NEST
 				Console.WriteLine("\tYear: {0}", response.Source.Year);
 				Console.WriteLine("\tSummary: {0}", response.Source.Summary);
 				Console.WriteLine("\tImageUrl: {0}", response.Source.ImageUrl);
-			}
-
-			Elasticsearch.Net.IElasticsearchResponse;
-
+			}	
 
 			Console.WriteLine("HttpStatusCode: {0}", response.ConnectionStatus.HttpStatusCode);
 			if (response.ConnectionStatus.HttpStatusCode >= 400) 
