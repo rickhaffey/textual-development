@@ -37,17 +37,26 @@ namespace TextualDevelopment.NEST
 			if (response.Source != null) 
 			{
 				Console.WriteLine();
-				Console.WriteLine("SOURCE: ");	
-				Console.WriteLine("Title: {0}", response.Source.Title);
-				Console.WriteLine("Url: {0}", response.Source.Url);
-				Console.WriteLine("Artist: {0}", response.Source.Artist);
-				Console.WriteLine("Rank: {0}", response.Source.Rank);
-				Console.WriteLine("Label: {0}", response.Source.Label);
-				Console.WriteLine("Year: {0}", response.Source.Year);
-				Console.WriteLine("Summary: {0}", response.Source.Summary);
-				Console.WriteLine("ImageUrl: {0}", response.Source.ImageUrl);
+				Console.WriteLine("_source: ");	
+				Console.WriteLine("\tTitle: {0}", response.Source.Title);
+				Console.WriteLine("\tUrl: {0}", response.Source.Url);
+				Console.WriteLine("\tArtist: {0}", response.Source.Artist);
+				Console.WriteLine("\tRank: {0}", response.Source.Rank);
+				Console.WriteLine("\tLabel: {0}", response.Source.Label);
+				Console.WriteLine("\tYear: {0}", response.Source.Year);
+				Console.WriteLine("\tSummary: {0}", response.Source.Summary);
+				Console.WriteLine("\tImageUrl: {0}", response.Source.ImageUrl);
 			}
-				
+
+			Elasticsearch.Net.IElasticsearchResponse;
+
+
+			Console.WriteLine("HttpStatusCode: {0}", response.ConnectionStatus.HttpStatusCode);
+			if (response.ConnectionStatus.HttpStatusCode >= 400) 
+			{
+				Console.WriteLine(Encoding.UTF8.GetString(response.ConnectionStatus.ResponseRaw));	
+			}
+
 			Console.WriteLine();
 		}
 
