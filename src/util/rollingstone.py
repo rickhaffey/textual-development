@@ -27,7 +27,7 @@ def get_info(id):
     r1 = re.compile("url:\s*'(.*)'}", re.MULTILINE)
     m1 = r1.search(url_and_rank)
     album['url'] = 'http://www.rollingstone.com' + m1.group(1)
-    album['rank'] = list_item.select(".list-item-hd span.long-list-number")[0].text
+    album['rank'] = int(list_item.select(".list-item-hd span.long-list-number")[0].text)
     
     # parse out artist and title
     heading = list_item.select(".list-item-hd h2")[0].text
@@ -42,14 +42,14 @@ def get_info(id):
         album['title'] = m2.group(2).strip().rstrip("'")
 
     # parse out image URL
-    album['img_url'] = list_item.select(".img-container img")[0].get('src')
+    album['imageUrl'] = list_item.select(".img-container img")[0].get('src')
     
     # parse out label and year
     r3 = re.compile("(.*)\s*,\s*(.*)")
     m3 = r3.search(list_item.select(".article-content p em")[0].text)
     if(m3):
         album['label'] = m3.group(1).strip()
-        album['year'] = m3.group(2).strip() 
+        album['year'] = int(m3.group(2).strip())
 
     # parse out summary
     if(m3):
@@ -61,10 +61,10 @@ def get_info(id):
     # skip artist URL -- it's not always present so we'll ignore for now...
     #album['artist_url'] = list_item.select(".article-content p")[1].select("a")[0].get("href")
 
-    print(album['rank'] + ': ' + album['artist'] + ' - ' + album['title'])
+    print(str(album['rank']) + ': ' + album['artist'] + ' - ' + album['title'])
 
     # write out to temp .json file
-    filepath = 'albums/' + album['rank'] + '.json'
+    filepath = 'albums/' + str(album['rank']) + '.json'
     with open(filepath, 'w') as f:
         f.write(unicode(json.dumps(album)))
 
