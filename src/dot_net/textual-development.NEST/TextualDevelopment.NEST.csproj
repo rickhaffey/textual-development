@@ -48,8 +48,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NEST_Util.cs" />
     <Compile Include="Post_003.cs" />
     <Compile Include="Post_004.cs" />
+    <Compile Include="Post_006.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sandbox.cs" />
     <Compile Include="Post_005.cs" />
