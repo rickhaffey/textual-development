@@ -8,5 +8,4 @@
 * [ ] Correct Tags
 * [ ] Add Highlights
 * [ ] Add Links
-
-
+* [ ] All fenced blocks have the appropriate language specifier
