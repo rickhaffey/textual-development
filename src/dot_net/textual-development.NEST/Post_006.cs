@@ -17,40 +17,41 @@ namespace TextualDevelopment.NEST
 			// todo(rh): fix album info -- correct details for 500 - 498
 			// todo(rh): show id inference via attribute ?
 
-			Bulk_Index_Basic(url);
+            Bulk_Index_Error(url);
+			//Bulk_Index_Basic(url);
 			//Bulk_Index_DefaultIdx(url);
 			//Bulk_Index_Iterate(url);
 		}
 
-		public static void Bulk_Index_BulkRequest(string url)
-		{
-			var uri = new Uri (url);
-			var config = new ConnectionSettings (uri);
-			var client = new ElasticClient (config);
+        //public static void Bulk_Index_BulkRequest(string url)
+        //{
+        //    var uri = new Uri (url);
+        //    var config = new ConnectionSettings (uri);
+        //    var client = new ElasticClient (config);
 
-			Album a1 = new Album () { Title = "Album 500", Rank = 500 };
-			Album a2 = new Album () { Title = "Album 499", Rank = 499 };
-			Album a3 = new Album () { Title = "Album 498", Rank = 498 };
+        //    Album a1 = new Album () { Title = "Album 500", Rank = 500 };
+        //    Album a2 = new Album () { Title = "Album 499", Rank = 499 };
+        //    Album a3 = new Album () { Title = "Album 498", Rank = 498 };
 
-			BulkRequest request = new BulkRequest { 
-				Index = "rolling-stone-500",
-				Type = "album",
-				Operations = new List<IBulkOperation> {
-					new BulkIndexOperation<Album> {
-						Document = a1,
-						Id = a1.Rank						
-					},
-					new BulkIndexOperation<Album> {
-						Document = a2,
-						Id = a2.Rank						
-					},
-					new BulkIndexOperation<Album> {
-						Document = a3,
-						Id = a3.Rank						
-					}
-				}
-			};
-		}
+        //    BulkRequest request = new BulkRequest { 
+        //        Index = "rolling-stone-500",
+        //        Type = "album",
+        //        Operations = new List<IBulkOperation> {
+        //            new BulkIndexOperation<Album> {
+        //                Document = a1,
+        //                Id = a1.Rank						
+        //            },
+        //            new BulkIndexOperation<Album> {
+        //                Document = a2,
+        //                Id = a2.Rank						
+        //            },
+        //            new BulkIndexOperation<Album> {
+        //                Document = a3,
+        //                Id = a3.Rank						
+        //            }
+        //        }
+        //    };
+        //}
 
 		public static void Bulk_Index_Basic(string url)
 		{
@@ -151,7 +152,36 @@ IBulkResponse response = client.Bulk(br => br
 			}
 
 			var result = client.Bulk(bulkDescriptor);
-		}
+		}        
+
+
+        class Album2
+        {
+            public string Title { get; set; }
+            public string Artist { get; set; }
+            public string Year { get; set; }
+        }
+
+        public static void Bulk_Index_Error(string url)
+        {
+            var uri = new Uri(url);
+            var config = new ConnectionSettings(uri);
+            config.SetDefaultIndex("rolling-stone-500");
+            var client = new ElasticClient(config);
+
+            var response = client.Bulk(br => br
+                .Index<Album2>(bid => bid
+                    .Id(499)
+                    .Type("album")
+                    .Document(new Album2 { 
+                        Artist = "foo",
+                        Title = "bar",
+                        Year = "not an integer"
+                    })
+            ));
+
+            ExamineResponse(response);
+        }
 
 		private static void ExamineResponse(IBulkResponse response)
 		{
@@ -159,8 +189,12 @@ IBulkResponse response = client.Bulk(br => br
 
 			Console.WriteLine("ItemsWithErrors:");
 			foreach (BulkOperationResponseItem item in response.ItemsWithErrors) {
-				Console.WriteLine("\tIndex: {0}, Type: {1}, Id: {2}, Error: {3}",
-					item.Index, item.Type, item.Id, item.Error);
+                Console.WriteLine("\tId: {0}", item.Id);
+                Console.WriteLine("\t\tIndex: {0}", item.Index);
+                Console.WriteLine("\t\tType: {0}", item.Type);
+                Console.WriteLine("\t\tStatus: {0}", item.Status);                
+                Console.WriteLine("\t\tError: {0}", item.Error);
+                
 			}
             
 			Console.WriteLine();
